@@ -1,0 +1,144 @@
+﻿<Window x:Class="gierunia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gierunia"
+        mc:Ignorable="d"
+        Title="BlackJack" Height="550" Width="800" MinHeight="550" MinWidth="800" MaxHeight="550" MaxWidth="800">
+    <StackPanel>
+        <Menu>
+
+                <MenuItem Click="Start_Click" Header="Rozpocznij grę"/>
+                <MenuItem Header="Opcje">
+                    <MenuItem Header="Tasuj" Click="shuffle_Click"/>
+                    <Separator/>
+                    <!--<MenuItem Header="Losowa karta" Click="randomcard_Click"/>
+                    <Separator/>-->
+                    <MenuItem Header="Pokaż talię" Click="check_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Resetuj saldo" Click="cash_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Nowa talia" Click="newdeck_Click"/>
+                </MenuItem>
+                <MenuItem Header="Info">
+                    <MenuItem Header="O autorze" Click="Info1_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Grafika" Click="Info2_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Debug" Click="Debug_Click"/>
+            </MenuItem>
+                
+            </Menu>
+        <DockPanel HorizontalAlignment="Center" Margin="0,0,0,5">
+            <TextBlock x:Name="Punkty1" Margin="0,0,30,0" Text="0" FontSize="30" DockPanel.Dock="Left" Width="50" TextAlignment="Center"/>
+            <TextBlock x:Name="Punkty2" Margin="30,0,0,0" Text="0" FontSize="30" DockPanel.Dock="Right" Width="50" TextAlignment="Center"/>
+            <Button x:Name="Dobierz" Content="Dobierz" Width="180" FontSize="30" Click="Dobierz_Click" IsEnabled="False"/>
+            <Button x:Name="Pas" Content="Pas" Width="180" FontSize="30" Margin="30,0,30,0" Click="Pas_Click" IsEnabled="False"/>
+            <Button x:Name="Podwoj" Content="Podwój Stawkę" Width="180" FontSize="25" Click="Podwoj_Click" IsEnabled="False"/>
+        </DockPanel>
+        <ScrollViewer Height="400" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible">
+            <Grid x:Name="MyGrid" HorizontalAlignment="Left" Height="600" VerticalAlignment="Top" Width="780" Margin="0,0,0,0" Background="#abacac">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type Panel}">
+                        <Setter Property="Margin" Value="0,0,0,0" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="195"/>
+                    <ColumnDefinition Width="195"/>
+                    <ColumnDefinition Width="195"/>
+                    <ColumnDefinition Width="195"/>
+                </Grid.ColumnDefinitions>
+
+
+                <!--<TextBlock x:Name="ID1" Grid.Column="0" Grid.Row="0" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID2" Grid.Column="1" Grid.Row="0" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID3" Grid.Column="0" Grid.Row="1" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID4" Grid.Column="1" Grid.Row="1" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID5" Grid.Column="0" Grid.Row="2" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID6" Grid.Column="1" Grid.Row="2" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID7" Grid.Column="0" Grid.Row="3" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID8" Grid.Column="1" Grid.Row="3" Text="0" FontSize="30" TextAlignment="Center"/>
+
+                <TextBlock x:Name="ID9" Grid.Column="2" Grid.Row="0" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID10" Grid.Column="3" Grid.Row="0" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID11" Grid.Column="2" Grid.Row="1" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID12" Grid.Column="3" Grid.Row="1" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID13" Grid.Column="2" Grid.Row="2" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID14" Grid.Column="3" Grid.Row="2" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID15" Grid.Column="2" Grid.Row="3" Text="0" FontSize="30" TextAlignment="Center"/>
+                <TextBlock x:Name="ID16" Grid.Column="3" Grid.Row="3" Text="0" FontSize="30" TextAlignment="Center"/>-->
+
+                <Image x:Name="ID1" Grid.Column="0" Grid.Row="0" Source="/WHITE.jpg"/>
+                <Image x:Name="ID2" Grid.Column="1" Grid.Row="0" Source="/WHITE.jpg"/>
+                <Image x:Name="ID3" Grid.Column="0" Grid.Row="1" Source="/WHITE.jpg"/>
+                <Image x:Name="ID4" Grid.Column="1" Grid.Row="1" Source="/WHITE.jpg"/>
+                <Image x:Name="ID5" Grid.Column="0" Grid.Row="2" Source="/WHITE.jpg"/>
+                <Image x:Name="ID6" Grid.Column="1" Grid.Row="2" Source="/WHITE.jpg"/>
+                <Image x:Name="ID7" Grid.Column="0" Grid.Row="3" Source="/WHITE.jpg"/>
+                <Image x:Name="ID8" Grid.Column="1" Grid.Row="3" Source="/WHITE.jpg"/>
+
+                <Image x:Name="ID9" Grid.Column="2" Grid.Row="0" Source="/WHITE.jpg"/>
+                <Image x:Name="ID10" Grid.Column="3" Grid.Row="0" Source="/WHITE.jpg"/>
+                <Image x:Name="ID11" Grid.Column="2" Grid.Row="1" Source="/WHITE.jpg"/>
+                <Image x:Name="ID12" Grid.Column="3" Grid.Row="1" Source="/WHITE.jpg"/>
+                <Image x:Name="ID13" Grid.Column="2" Grid.Row="2" Source="/WHITE.jpg"/>
+                <Image x:Name="ID14" Grid.Column="3" Grid.Row="2" Source="/WHITE.jpg"/>
+                <Image x:Name="ID15" Grid.Column="2" Grid.Row="3" Source="/WHITE.jpg"/>
+                <Image x:Name="ID16" Grid.Column="3" Grid.Row="3" Source="/WHITE.jpg"/>
+
+
+            </Grid>
+        </ScrollViewer>
+
+
+        <DockPanel Margin="0,5,0,0" HorizontalAlignment="Center">
+            <TextBlock FontSize="25" Margin="40,0,0,0">Saldo: </TextBlock>
+            <TextBlock x:Name="Saldo" FontSize="25" Foreground="DarkGreen" Text="1000"/>
+            <TextBlock Margin="60,0,10,0" FontSize="25">Zakład:</TextBlock>
+            <TextBox x:Name="Zaklad" PreviewTextInput="NumberValidationTextBox" TextChanged="zatwierdz_Check" Width="90" MaxLength="5" FontSize="25"/>
+            <Button x:Name="Zatwierdz_Zaklad" Content="Zatwierdź" Width="150" Margin="40,0,20,0" HorizontalAlignment="Left" FontSize="25" Click="Zatwierdz_Zaklad_Click" IsEnabled="false"/>
+        </DockPanel>
+        
+        <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Button Grid.Column="0" Grid.Row="1" x:Name="shake" Click="shake_Click">
+            tasuj
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="1" x:Name="przycisk" Click="przycisk_Click">
+            random
+        </Button>
+
+        <Button Grid.Column="2" Grid.Row="1" x:Name="check" Click="check_Click">
+            klik2
+        </Button>
+
+        <TextBlock Grid.Column="1" Grid.Row="2" x:Name="tooltip"/>
+        <TextBlock Grid.Column="2" Grid.Row="2" x:Name="taliaitems" TextWrapping="Wrap"/>
+
+
+
+    </Grid>-->
+    </StackPanel>
+</Window>
