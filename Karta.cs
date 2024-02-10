@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gierunia
+namespace Blackjack_card_game
 {
     class Karta
     {
         public string znak; // pik, kier, trefl, karo
         public string symbol; //
         public int wartosc; // 2-10 as warty 11
-        public string img ="";
+        public string img = "";
 
         public Karta(int z, int w)
         {
@@ -69,11 +69,11 @@ namespace gierunia
             }
             else
             {
-                this.img += "0"+w.ToString();
+                this.img += "0" + w.ToString();
             }
             this.img += ".jpg";
 
-           
+
         }
 
     }

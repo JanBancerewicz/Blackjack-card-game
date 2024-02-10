@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.Threading;
 
-namespace gierunia
+namespace Blackjack_card_game
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

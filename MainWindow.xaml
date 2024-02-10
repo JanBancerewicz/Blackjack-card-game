@@ -1,35 +1,35 @@
-﻿<Window x:Class="gierunia.MainWindow"
+﻿<Window x:Class="Blackjack_card_game.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:gierunia"
+        xmlns:local="clr-namespace:Blackjack_card_game"
         mc:Ignorable="d"
         Title="BlackJack" Height="550" Width="800" MinHeight="550" MinWidth="800" MaxHeight="550" MaxWidth="800">
     <StackPanel>
         <Menu>
 
-                <MenuItem Click="Start_Click" Header="Rozpocznij grę"/>
-                <MenuItem Header="Opcje">
-                    <MenuItem Header="Tasuj" Click="shuffle_Click"/>
-                    <Separator/>
-                    <!--<MenuItem Header="Losowa karta" Click="randomcard_Click"/>
+            <MenuItem Click="Start_Click" Header="Rozpocznij grę"/>
+            <MenuItem Header="Opcje">
+                <MenuItem Header="Tasuj" Click="shuffle_Click"/>
+                <Separator/>
+                <!--<MenuItem Header="Losowa karta" Click="randomcard_Click"/>
                     <Separator/>-->
-                    <MenuItem Header="Pokaż talię" Click="check_Click"/>
-                    <Separator/>
-                    <MenuItem Header="Resetuj saldo" Click="cash_Click"/>
-                    <Separator/>
-                    <MenuItem Header="Nowa talia" Click="newdeck_Click"/>
-                </MenuItem>
-                <MenuItem Header="Info">
-                    <MenuItem Header="O autorze" Click="Info1_Click"/>
-                    <Separator/>
-                    <MenuItem Header="Grafika" Click="Info2_Click"/>
-                    <Separator/>
-                    <MenuItem Header="Debug" Click="Debug_Click"/>
+                <MenuItem Header="Pokaż talię" Click="check_Click"/>
+                <Separator/>
+                <MenuItem Header="Resetuj saldo" Click="cash_Click"/>
+                <Separator/>
+                <MenuItem Header="Nowa talia" Click="newdeck_Click"/>
             </MenuItem>
-                
-            </Menu>
+            <MenuItem Header="Info">
+                <MenuItem Header="O autorze" Click="Info1_Click"/>
+                <Separator/>
+                <MenuItem Header="Grafika" Click="Info2_Click"/>
+                <Separator/>
+                <MenuItem Header="Debug" Click="Debug_Click"/>
+            </MenuItem>
+
+        </Menu>
         <DockPanel HorizontalAlignment="Center" Margin="0,0,0,5">
             <TextBlock x:Name="Punkty1" Margin="0,0,30,0" Text="0" FontSize="30" DockPanel.Dock="Left" Width="50" TextAlignment="Center"/>
             <TextBlock x:Name="Punkty2" Margin="30,0,0,0" Text="0" FontSize="30" DockPanel.Dock="Right" Width="50" TextAlignment="Center"/>
@@ -100,13 +100,13 @@
 
 
         <DockPanel Margin="0,5,0,0" HorizontalAlignment="Center">
-            <TextBlock FontSize="25" Margin="40,0,0,0">Saldo: </TextBlock>
+            <TextBlock FontSize="25" Margin="40,0,0,0">Saldo:</TextBlock>
             <TextBlock x:Name="Saldo" FontSize="25" Foreground="DarkGreen" Text="1000"/>
             <TextBlock Margin="60,0,10,0" FontSize="25">Zakład:</TextBlock>
             <TextBox x:Name="Zaklad" PreviewTextInput="NumberValidationTextBox" TextChanged="zatwierdz_Check" Width="90" MaxLength="5" FontSize="25"/>
             <Button x:Name="Zatwierdz_Zaklad" Content="Zatwierdź" Width="150" Margin="40,0,20,0" HorizontalAlignment="Left" FontSize="25" Click="Zatwierdz_Zaklad_Click" IsEnabled="false"/>
         </DockPanel>
-        
+
         <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
