@@ -4,8 +4,12 @@ This .NET desktop application is a simple simulator for playing the popular casi
 
 ## Preview
 
+![bjss1](https://github.com/JanBancerewicz/Blackjack-card-game/assets/79080628/367dc7aa-eedf-4357-b82f-954747308e8f)
+
 
 After the move:
+
+![bjss2](https://github.com/JanBancerewicz/Blackjack-card-game/assets/79080628/38deafa8-7d36-4177-986c-6b4b51a22ac8)
 
 
 ## Features
